@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "STAM Shortcuts To Activate Microphone",
+  "version": "1.0",
+  "description": "Umožňuje aktivovat mikrofon na stránkách pomocí klávesové zkratky Alt+S.",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*",
+        "https://gemini.google.com/*",
+        "https://www.youtube.com/*",
+        "https://chatgpt.com/*",
+        "https://www.perplexity.ai/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "activate-mic": {
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "Aktivuje mikrofon nebo zobrazí zprávu."
+    }
+  }
+}
