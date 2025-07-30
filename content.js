@@ -68,9 +68,16 @@
       }
       // ChatGPT
       if (!micBtn) {
-        micBtn = document.querySelector('button[aria-label="Tlačítko diktování"]');
+        // First, try to find the "Send dictation" button (mic is active)
+        micBtn = document.querySelector('button[aria-label="Odeslat diktování"]');
         if (micBtn) {
-          console.log('STAM: ChatGPT mikrofonní tlačítko nalezeno');
+          console.log('STAM: ChatGPT "Odeslat diktování" tlačítko nalezeno');
+        } else {
+          // If not found, try to find the "Start dictation" button (mic is inactive)
+          micBtn = document.querySelector('button[aria-label="Tlačítko diktování"]');
+          if (micBtn) {
+            console.log('STAM: ChatGPT "Tlačítko diktování" tlačítko nalezeno');
+          }
         }
       }
       // Perplexity.ai
